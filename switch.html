@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch</title>
+    <style>
+    .container{
+        width: 43px;
+        margin-left: 50%;
+        margin-top: 20%;
+    }
+    .switch{   
+        display: none;   
+    }   
+    label{   
+        position:relative;   
+        display: block;   
+        padding: 1px;   
+        border-radius: 24px;   
+        height: 22px;   
+        margin-bottom: 15px;   
+        background-color: rgb(22, 20, 155);   
+        cursor: pointer;    
+    }   
+    label:before{   
+        content: '';   
+        display: block;   
+        border-radius: 24px;   
+        height: 22px;   
+        background-color: rgb(231, 71, 71);   
+        -webkit-transform: scale(1, 1);   
+        -webkit-transition: all 0.3s ease;   
+        /*all表示css所有属性，这里应该是持续动画时间0.3秒的意思*/
+        /*-webkit代表chrome、safari私有属性*/
+    }   
+    label:after{   
+        content: '';   
+        position: absolute;   
+        top: 50%;     
+        left: 50%;     
+        margin-top: -11px;     
+        margin-left: -11px;   
+        width: 22px;   
+        height: 22px;   
+        border-radius: 22px;   
+        background-color: rgb(255, 255, 255);   
+        box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.08);   
+        -webkit-transform: translateX(-9px);   
+        -webkit-transition: all 0.3s ease;   
+    }   
+    /* A~B{ }表示A之后出现的所有B，且A、B有相同的父元素 */
+    
+    .switch:checked~label:after{   
+        -webkit-transform: translateX(9px);   
+    }   
+    .switch:checked~label:before{   
+        background-color:rgb(65, 150, 230);   
+    }    
+    </style>
+</head>
+<body>
+    <div class="container">  
+        <div class="bg_con">  
+            <input id="checked_box" type="checkbox" class="switch" />  
+            <label for="checked_box"></label>  
+            <!-- for和id成对出现时，for属性中的值和绑定id的值一样，点击for里面的元素，跳转到响应的绑定的id标签那里 -->
+        </div>  
+    </div> 
+</body>
+</html>
